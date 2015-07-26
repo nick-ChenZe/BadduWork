@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-image: url(img/BG1.jpg);
+            background-repeat: repeat;
+        }
+        canvas{
+            position: absolute;
+        }
+        .border{
+            border: 1px solid #bdbdbd;
+        }
+        .map canvas{
+            position: relative;
+            background-color: #338fc8;
+            left: 200px;
+            top: 20px;
+        }
+        .container{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .header{
+            width: 1000px;
+            margin: 0 auto;
+            height: 80px;
+        }
+        .title{
+            position: absolute;
+            top: 10px;
+            color: white;
+        }
+        .content{
+            width: 1000px;
+            height: 700px;
+            /*overflow: hidden;*/
+        }
+        .content_sub{
+            width: 900px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        .map{
+            width: 1000px;
+            height: 600px;
+            margin: 0 auto;
+            /*border: 1px solid black;*/
+        }
+        .a p{
+            position: absolute;
+            top:240px;
+            left: 95px;
+        }
+        .a{
+            position: relative;
+            float: left;
+            width: 400px;
+            height: 300px;
+            margin-left: 30px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            margin-right: 30px;
+        }
+        .a canvas{
+            left: 0;
+        }
+        .b{
+            position: relative;
+            float: left;
+            width: 400px;
+            height: 300px;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+        .c{
+             float: left;
+             width: 400px;
+             height: 300px;
+             margin-left: 30px;
+            margin-bottom: 30px;
+            margin-right: 30px;
+         }
+        .d{
+            position: relative;
+            float: left;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            color: white;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+        .d canvas{
+            top: 20px;
+            left: 40px;
+        }
+        .d p{
+            position: relative;
+            margin-top: 10px;
+            left: 60px;
+            top: 160px;
+            text-align: left;
+        }
+        .footer{
+            height: 100px;
+            clear: both;
+        }
+        .button_option{
+            position: relative;
+            width: 90px;
+            height: 20px;
+            border: 3px solid #6e51ff;
+            border-radius: 4px;
+            z-index: 9999;
+        }
+        #selected{
+            position: absolute;
+            z-index: 999;
+        }
+        .button_input{
+            position: relative;
+            width: 54px;
+            z-index: 999;
+            margin-left: 4px;
+            margin-top: 3px;
+            border: 3px solid #6e51ff;
+            border-radius: 4px;
+        }
+        .button{
+            position: relative;
+            color: #6e51ff;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        #toggle{
+            position: absolute;
+            z-index: 999;
+            text-align: center;
+            width: 200px;
+            display: block;
+            color: white;
+            border: 1px solid white;
+            bottom: 0px;
+            left: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">空气质量地图</h1>
+    </div>
+    <div class="container border">
+        <div class="map border" id="12" chart="map"></div>
+        <div class="content">
+            <div class="content_sub">
+                <div class="a border" chart="circleChart">
+                    <div id="selected">
+                        <select class="button_option selectCity" id="city">
+                            <option selected="selected">选择城市</option>
+                        </select>
+                        <select class="button_option selectQuality" id="quality">
+                            <option selected="selected">选择质量指标</option>
+                        </select>
+                        <input class="button_input" value="输入标准" id="number">
+                        <input type="submit" class="button_input button" value="生成" id="submit_circle">
+                    </div>
+                </div>
+                <div class="b border"  chart="lineChart">
+                    <a id="toggle">折线图切换柱状对比图</a>
+                </div>
+                <div class="c border" chart="starChart">
+                </div>
+                <div class="d border" chart="pieChart">
+                    <select class="button_option selectCity" id="city1">
+                        <option selected="selected">选择城市</option>
+                    </select>
+                    <select class="button_option selectQuality" id="quality1">
+                        <option selected="selected">选择质量指标</option>
+                    </select>
+                    <input class="button_input" value="输入标准" id="number1">
+                    <input class="button_input" value="输入标准" id="number2">
+                    <input type="submit" class="button_input button" value="生成" id="submit_pie">
+                </div>
+            </div>
+        </div>
+        <div class="footer border"></div>
+    </div>
+    <script src="js/Data.js"></script>
+    <script src="js/option.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
